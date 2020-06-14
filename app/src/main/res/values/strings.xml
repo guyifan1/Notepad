@@ -21,7 +21,7 @@
     <string name="title_edit_title">Note title:</string>
     <string name="title_create">New note</string>
     <string name="title_edit">Edit: %1$s</string>
-    <string name="title_notes_list">Note</string>
+    <string name="title_notes_list">Notes</string>
 
     <string name="input">please enter title</string>
 
