@@ -43,5 +43,6 @@
     <string name="error_message">Error loading note</string>
     <string name="nothing_to_save">There is nothing to save</string>
     <string name="search">Search</string>
+    <string name="background">Background</string>
     <string name="NotesSearch">NotesSearch</string>
 </resources>

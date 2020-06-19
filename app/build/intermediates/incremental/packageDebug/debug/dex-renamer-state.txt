@@ -1,4 +1,4 @@
-#Thu Jun 18 21:42:57 CST 2020
+#Fri Jun 19 22:59:29 CST 2020
 base.0=C\:\\app\\Notepad\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
