@@ -48,5 +48,7 @@
     <string name="menu_output">Output</string>
     <string name="output_name">Output_name</string>
     <string name="output_ok">ok</string>
-
+    <string name="menu_sort">Sort</string>
+    <string name="menu_sort1">Sort by title</string>
+    <string name="menu_sort2">Sort by modification time</string>
 </resources>

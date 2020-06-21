@@ -121,7 +121,17 @@ public final class NotePad {
         /**
          * The default sort order for this table
          */
-        public static final String DEFAULT_SORT_ORDER = "modified DESC";
+        public static final String DEFAULT_SORT_ORDER = "created DESC";
+
+        /**
+         * The title sort order for this table
+         */
+        public static final String TITLE_SORT_ORDER="title DESC";
+
+        /**
+         * The modefied sort order for this table
+         */
+        public static final String MODIFIED_SORT_ORDER="modified DESC";
 
         /*
          * Column definitions

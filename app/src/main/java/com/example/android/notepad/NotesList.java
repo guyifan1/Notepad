@@ -270,6 +270,8 @@ public class NotesList extends ListActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE} ;
+        int[] viewIDs = { android.R.id.text1,android.R.id.text2};
         switch (item.getItemId()) {
         case R.id.menu_add:
           /*
@@ -291,6 +293,40 @@ public class NotesList extends ListActivity {
             //add search
           startActivity(new Intent().setClass(this,NoteSearch.class));
           return true;
+        case R.id.menu_sort1:
+             Cursor cursor = managedQuery(
+                    getIntent().getData(),
+                    PROJECTION,
+                    null,
+                    null,
+                     NotePad.Notes.TITLE_SORT_ORDER
+            );
+            MyCursorAdapter adapter = new MyCursorAdapter(
+                    this,
+                    R.layout.noteslist_item,
+                    cursor,
+                    dataColumns,
+                    viewIDs
+            );
+            setListAdapter(adapter);
+            return true;
+        case R.id.menu_sort2:
+              cursor = managedQuery(
+                        getIntent().getData(),
+                        PROJECTION,
+                        null,
+                        null,
+                        NotePad.Notes.MODIFIED_SORT_ORDER
+                );
+                adapter = new MyCursorAdapter(
+                        this,
+                        R.layout.noteslist_item,
+                        cursor,
+                        dataColumns,
+                        viewIDs
+                );
+                setListAdapter(adapter);
+                return true;
         default:
             return super.onOptionsItemSelected(item);
         }
