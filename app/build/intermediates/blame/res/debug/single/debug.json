@@ -36,16 +36,24 @@
         "source": "C:\\app\\Notepad\\app\\src\\main\\res\\drawable-ldpi\\app_notes.png"
     },
     {
-        "merged": "C:\\app\\Notepad\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_save.png.flat",
-        "source": "C:\\app\\Notepad\\app\\src\\main\\res\\drawable\\ic_menu_save.png"
-    },
-    {
         "merged": "C:\\app\\Notepad\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_app_notes.png.flat",
         "source": "C:\\app\\Notepad\\app\\src\\main\\res\\drawable-hdpi\\app_notes.png"
     },
     {
+        "merged": "C:\\app\\Notepad\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_save.png.flat",
+        "source": "C:\\app\\Notepad\\app\\src\\main\\res\\drawable\\ic_menu_save.png"
+    },
+    {
+        "merged": "C:\\app\\Notepad\\app\\build\\intermediates\\res\\merged\\debug\\drawable_back.png.flat",
+        "source": "C:\\app\\Notepad\\app\\src\\main\\res\\drawable\\back.png"
+    },
+    {
         "merged": "C:\\app\\Notepad\\app\\build\\intermediates\\res\\merged\\debug\\drawable_app_notes.png.flat",
         "source": "C:\\app\\Notepad\\app\\src\\main\\res\\drawable\\app_notes.png"
+    },
+    {
+        "merged": "C:\\app\\Notepad\\app\\build\\intermediates\\res\\merged\\debug\\layout_output_text.xml.flat",
+        "source": "C:\\app\\Notepad\\app\\src\\main\\res\\layout\\output_text.xml"
     },
     {
         "merged": "C:\\app\\Notepad\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_delete.png.flat",

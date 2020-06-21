@@ -45,4 +45,8 @@
     <string name="search">Search</string>
     <string name="background">Background</string>
     <string name="NotesSearch">NotesSearch</string>
+    <string name="menu_output">Output</string>
+    <string name="output_name">Output_name</string>
+    <string name="output_ok">ok</string>
+
 </resources>

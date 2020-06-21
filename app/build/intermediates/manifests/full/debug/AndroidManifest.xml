@@ -28,6 +28,10 @@
         android:minSdkVersion="15"
         android:targetSdkVersion="26" />
 
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 向SD卡写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:debuggable="true"
         android:icon="@drawable/app_notes"
@@ -153,6 +157,12 @@
         <activity
             android:name="com.example.android.notepad.NoteSearch"
             android:label="@string/NotesSearch" >
+        </activity>
+        <activity
+            android:name="com.example.android.notepad.OutputText"
+            android:label="@string/output_name"
+            android:theme="@android:style/Theme.Holo.Dialog"
+            android:windowSoftInputMode="stateVisible" >
         </activity>
     </application>
 

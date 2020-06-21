@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jun 19 22:59:29 CST 2020
+#Sun Jun 21 14:06:14 CST 2020
 0.baseType=DIRECTORY
 0.base=C\:\\app\\Notepad\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 0.path=classes.dex
