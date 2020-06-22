@@ -450,6 +450,24 @@ public class NoteEditor extends Activity {
         case R.id.menu_output:
             outputNote();
             break;
+        case R.id.font_20:
+            mText.setTextSize(20);
+            break;
+        case R.id.font_50:
+            mText.setTextSize(50);
+            break;
+        case R.id.font_100:
+            mText.setTextSize(100);
+            break;
+        case R.id.black_font:
+            mText.setTextColor(-16777216);
+            break;
+        case R.id.red_font:
+            mText.setTextColor(-65536);
+            break;
+        case R.id.blue_font:
+            mText.setTextColor(-16776961);
+            break;
         }
         return super.onOptionsItemSelected(item);
     }

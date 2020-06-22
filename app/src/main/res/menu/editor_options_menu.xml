@@ -14,4 +14,32 @@
           android:showAsAction="ifRoom|withText" />
     <item android:id="@+id/menu_output"
         android:title="@string/output_name" />
+    <item android:title="字体大小">
+        <menu>
+            <item
+                android:id="@+id/font_20"
+                android:title="10"
+                />
+            <item
+                android:id="@+id/font_50"
+                android:title="16" />
+            <item
+                android:id="@+id/font_100"
+                android:title="20" />
+        </menu>
+    </item>
+    <item android:title="字体颜色">
+        <menu>
+            <item
+                android:id="@+id/red_font"
+                android:title="红色" />
+            <item
+                android:title="黑色"
+                android:id="@+id/black_font"/>
+            <item
+                android:title="蓝色"
+                android:id="@+id/blue_font"
+                />
+        </menu>
+    </item>
 </menu>

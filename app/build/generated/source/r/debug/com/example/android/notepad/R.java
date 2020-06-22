@@ -20,26 +20,32 @@ public final class R {
     public static final int live_folder_notes=0x7f010008;
   }
   public static final class id {
-    public static final int context_copy=0x7f020000;
-    public static final int context_delete=0x7f020001;
-    public static final int context_open=0x7f020002;
-    public static final int context_share=0x7f020003;
-    public static final int menu_add=0x7f020004;
-    public static final int menu_delete=0x7f020005;
-    public static final int menu_output=0x7f020006;
-    public static final int menu_paste=0x7f020007;
-    public static final int menu_revert=0x7f020008;
-    public static final int menu_save=0x7f020009;
-    public static final int menu_sort=0x7f02000a;
-    public static final int menu_sort1=0x7f02000b;
-    public static final int menu_sort2=0x7f02000c;
-    public static final int note=0x7f02000d;
-    public static final int ok=0x7f02000e;
-    public static final int output_name=0x7f02000f;
-    public static final int output_ok=0x7f020010;
-    public static final int search=0x7f020011;
-    public static final int search_view=0x7f020012;
-    public static final int title=0x7f020013;
+    public static final int black_font=0x7f020000;
+    public static final int blue_font=0x7f020001;
+    public static final int context_copy=0x7f020002;
+    public static final int context_delete=0x7f020003;
+    public static final int context_open=0x7f020004;
+    public static final int context_share=0x7f020005;
+    public static final int font_100=0x7f020006;
+    public static final int font_20=0x7f020007;
+    public static final int font_50=0x7f020008;
+    public static final int menu_add=0x7f020009;
+    public static final int menu_delete=0x7f02000a;
+    public static final int menu_output=0x7f02000b;
+    public static final int menu_paste=0x7f02000c;
+    public static final int menu_revert=0x7f02000d;
+    public static final int menu_save=0x7f02000e;
+    public static final int menu_sort=0x7f02000f;
+    public static final int menu_sort1=0x7f020010;
+    public static final int menu_sort2=0x7f020011;
+    public static final int note=0x7f020012;
+    public static final int ok=0x7f020013;
+    public static final int output_name=0x7f020014;
+    public static final int output_ok=0x7f020015;
+    public static final int red_font=0x7f020016;
+    public static final int search=0x7f020017;
+    public static final int search_view=0x7f020018;
+    public static final int title=0x7f020019;
   }
   public static final class layout {
     public static final int note_editor=0x7f030000;
