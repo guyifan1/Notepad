@@ -42,4 +42,8 @@
                 />
         </menu>
     </item>
+    <item android:id="@+id/menu_clock"
+        android:icon="@drawable/time"
+        android:title="menu_clock"
+        android:showAsAction="always"/>
 </menu>

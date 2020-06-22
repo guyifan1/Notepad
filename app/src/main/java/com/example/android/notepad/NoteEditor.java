@@ -17,6 +17,9 @@
 package com.example.android.notepad;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ComponentName;
@@ -31,14 +34,19 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * This Activity handles "editing" a note, where editing is responding to
@@ -468,6 +476,36 @@ public class NoteEditor extends Activity {
         case R.id.blue_font:
             mText.setTextColor(-16776961);
             break;
+        case R.id.menu_clock:
+                Calendar calendar=Calendar.getInstance();
+                int hour=calendar.get(Calendar.HOUR_OF_DAY);
+                int minute=calendar.get(Calendar.MINUTE);
+                //01、弹出时间对话框
+                TimePickerDialog timePickerDialog=new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        //c为改了之后的时间
+                        Calendar c=Calendar.getInstance();
+                        c.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                        c.set(Calendar.MINUTE,minute);
+                        AlarmManager alarmManager = (AlarmManager) NoteEditor.this.getSystemService(Context.ALARM_SERVICE);
+                        //02、确定好选择的时间
+                        //03、设置闹钟  RTC_WAKEUP可以唤醒你的手机
+                        //04、当时间一到，将执行的响应
+                        Intent intent=new Intent();
+                        intent.setAction("com.example.android.notepad.clock");
+                        intent.putExtra("Title",mCursor.getString(mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_TITLE)));
+                        intent.putExtra("Text",mCursor.getString(mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_NOTE)));
+                        PendingIntent pendingIntent = PendingIntent.getBroadcast(NoteEditor.this,0x101,intent,0);
+                        alarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime()+c.getTimeInMillis()-System.currentTimeMillis(), pendingIntent);
+                        Toast toast =Toast.makeText(NoteEditor.this, "闹钟设置完毕", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER,0,0);
+                        toast.show();
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

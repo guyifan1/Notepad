@@ -20,17 +20,24 @@ import com.example.android.notepad.NotePad;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
 import android.content.ClipboardManager;
 import android.content.ClipData;
 import android.content.ComponentName;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -143,6 +150,11 @@ public class NotesList extends ListActivity {
         // Sets the ListView's adapter to be the cursor adapter that was just created.
         setListAdapter(adapter);
 
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("com.example.android.notepad.clock");
+        ClockReceiver  clockReceiver= new ClockReceiver();
+        registerReceiver(clockReceiver,filter);
     }
 
     /**
@@ -529,6 +541,30 @@ public class NotesList extends ListActivity {
             // Sends out an Intent to start an Activity that can handle ACTION_EDIT. The
             // Intent's data is the note ID URI. The effect is to call NoteEdit.
             startActivity(new Intent(Intent.ACTION_EDIT, uri));
+        }
+    }
+
+    class ClockReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            NotificationManager notificationManager=(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            NotificationCompat.Builder builder = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel notificationChannel = new NotificationChannel("MyChannel", getString(R.string.app_name),
+                        NotificationManager.IMPORTANCE_DEFAULT);
+                notificationManager.createNotificationChannel(notificationChannel);
+                builder = new NotificationCompat.Builder(context,"MyChannel");
+            } else {
+                builder = new NotificationCompat.Builder(context);
+            }
+            builder.setSmallIcon(R.drawable.time)
+                    .setContentTitle(intent.getStringExtra("Title"))
+                    .setContentText(intent.getStringExtra("Text"))
+                    .setAutoCancel(true)
+                    //通知默认的声音 震动 呼吸灯
+                    .setDefaults(NotificationCompat.DEFAULT_ALL);
+            Notification notification = builder.build();
+            notificationManager.notify(123, notification);
         }
     }
 }
