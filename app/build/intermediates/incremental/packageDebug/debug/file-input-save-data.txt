@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Sun Jun 21 15:31:10 CST 2020
-0.baseType=DIRECTORY
-0.base=C\:\\app\\Notepad\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-0.path=classes.dex
-0.set=DEX
-count=1

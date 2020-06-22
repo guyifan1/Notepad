@@ -327,7 +327,7 @@ public class NotesList extends ListActivity {
                 );
                 setListAdapter(adapter);
                 return true;
-        default:
+            default:
             return super.onOptionsItemSelected(item);
         }
     }
@@ -475,6 +475,24 @@ public class NotesList extends ListActivity {
   
             // Returns to the caller and skips further processing.
             return true;
+            case R.id.context_share:
+                Cursor cursor = managedQuery(
+                        getIntent().getData(),            // Use the default content URI for the provider.
+                        PROJECTION,                       // Return the note ID ,title and modification_date for each note.
+                        null,                             // No where clause, return all records.
+                        null,                             // No where clause, therefore no where column values.
+                        NotePad.Notes.DEFAULT_SORT_ORDER  // Use the default sort order.
+                );
+                // Toast.makeText(JzwActivity.this,question+"===",Toast.LENGTH_SHORT).show();
+                while(cursor.moveToNext())
+                {
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "分享");
+                    intent.putExtra(Intent.EXTRA_TEXT, "来自NotePad的分享："+cursor.getString(1));
+                    startActivity(Intent.createChooser(intent, "分享到"));
+                }
+                return true;
         default:
             return super.onContextItemSelected(item);
         }
