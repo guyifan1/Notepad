@@ -28,6 +28,7 @@ import android.content.ClipboardManager;
 import android.content.ClipData;
 import android.content.ComponentName;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -49,6 +50,8 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
@@ -74,6 +77,7 @@ public class NotesList extends ListActivity {
             NotePad.Notes._ID, // 0
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
             NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, //2
+            NotePad.Notes.COLUMN_NAME_LABEL,//3
     };
 
     /** The index of the title column */
@@ -131,11 +135,11 @@ public class NotesList extends ListActivity {
          */
 
         // The names of the cursor columns to display in the view, initialized to the title column
-        String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE} ;
+        String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,NotePad.Notes.COLUMN_NAME_LABEL} ;
 
         // The view IDs that will display the cursor columns, initialized to the TextView in
         // noteslist_item.xml
-        int[] viewIDs = { android.R.id.text1,android.R.id.text2};
+        int[] viewIDs = { android.R.id.text1,android.R.id.text2,R.id.text3};
 
         // Creates the backing adapter for the ListView.
         SimpleCursorAdapter adapter
@@ -505,6 +509,9 @@ public class NotesList extends ListActivity {
                     startActivity(Intent.createChooser(intent, "分享到"));
                 }
                 return true;
+            case R.id.context_label:
+                updateLabel(noteUri);
+                return  true;
         default:
             return super.onContextItemSelected(item);
         }
@@ -566,5 +573,56 @@ public class NotesList extends ListActivity {
             Notification notification = builder.build();
             notificationManager.notify(123, notification);
         }
+    }
+
+    @Override
+
+    protected void onResume() {
+
+        super.onResume();
+
+        onCreate(null);
+
+    }
+
+    private  void updateLabel(final Uri mUri) {
+
+        //创建对话框builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(NotesList.this);
+        //通过builder创建对话框
+        final AlertDialog alertDialog = builder.create();
+        //获取对话框布局
+        View alertDialogView = View.inflate(this, R.layout.label_editor, null);
+        //将布局和对话框绑定
+        alertDialog.setView(alertDialogView);
+        //显示对话框
+        alertDialog.show();
+
+        final Button btnOK = alertDialogView.findViewById(R.id.btn_OK);
+        final Button btnCancel = alertDialogView.findViewById(R.id.btn_cancel);
+        final RadioGroup radioGroup = alertDialogView.findViewById(R.id.radioGroupId);
+
+        btnOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContentValues values = new ContentValues();
+                int count = radioGroup.getChildCount();
+                for (int i = 0; i < count; i++) {
+                    RadioButton rb = (RadioButton) radioGroup.getChildAt(i);
+                    if (rb.isChecked()) {
+                        Log.e("missage", rb.getText().toString());
+                        values.put(NotePad.Notes.COLUMN_NAME_LABEL, rb.getText().toString());
+                        getContentResolver().update(
+                                mUri,    // The URI for the record to update.
+                                values,  // The map of column names and new values to apply to them.
+                                null,    // No selection criteria are used, so no where columns are necessary.
+                                null     // No where columns are used, so no where arguments are necessary.
+                        );
+                        break;
+                    }
+                }
+                alertDialog.dismiss();
+            }
+        });
     }
 }

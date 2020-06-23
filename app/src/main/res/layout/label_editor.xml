@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:gravity="center"
+        android:text="UPDATE LABEL"
+        android:textColor="#000"
+        android:textSize="30sp" />
+    <RadioGroup
+        android:id="@+id/radioGroupId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="#F5F5F5"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/defaultButtonId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="默认标签"/>
+        <RadioButton
+            android:id ="@+id/lifeButtonId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="生活随笔"/>
+        <RadioButton
+            android:id ="@+id/workButtonId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="工作总结"/>
+        <RadioButton
+            android:id ="@+id/weeklyButtonId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一周计划"/>
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="#F5F5F5"
+            android:text="cancel"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_OK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#F5F5F5"
+            android:text="OK"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

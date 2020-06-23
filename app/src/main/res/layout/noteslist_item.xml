@@ -30,6 +30,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentLeft="true"
+        android:layout_alignBottom="@android:id/text1"
+        />
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:background="@drawable/text_view_broder"
+        android:padding="3dp"
         android:layout_alignParentRight="true"
         android:layout_alignBottom="@android:id/text1"
         />

@@ -139,6 +139,9 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
         // given a string. The two are usually equal.
         sNotesProjectionMap = new HashMap<String, String>();
 
+        // Maps "label" to "label"
+        sNotesProjectionMap.put(NotePad.Notes.COLUMN_NAME_LABEL, NotePad.Notes.COLUMN_NAME_LABEL);
+
         // Maps the string "_ID" to the column name "_ID"
         sNotesProjectionMap.put(NotePad.Notes._ID, NotePad.Notes._ID);
 
@@ -196,6 +199,7 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
                    + NotePad.Notes._ID + " INTEGER PRIMARY KEY,"
                    + NotePad.Notes.COLUMN_NAME_TITLE + " TEXT,"
                    + NotePad.Notes.COLUMN_NAME_NOTE + " TEXT,"
+                   + NotePad.Notes.COLUMN_NAME_LABEL + " TEXT default('默认标签'),"
                    + NotePad.Notes.COLUMN_NAME_CREATE_DATE + " INTEGER,"
                    + NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE + " INTEGER"
                    + ");");
