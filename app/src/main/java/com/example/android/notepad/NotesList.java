@@ -286,8 +286,8 @@ public class NotesList extends ListActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE} ;
-        int[] viewIDs = { android.R.id.text1,android.R.id.text2};
+        String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,NotePad.Notes.COLUMN_NAME_LABEL} ;
+        int[] viewIDs = { android.R.id.text1,android.R.id.text2,R.id.text3};
         switch (item.getItemId()) {
         case R.id.menu_add:
           /*
